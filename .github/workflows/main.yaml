@@ -1,13 +1,11 @@
-name: success-test
+name: recover-test
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  test-success:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Just succeed
-        run: echo "Workflow succeeded 🎉"
+      - run: exit 1
