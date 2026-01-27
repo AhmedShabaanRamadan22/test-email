@@ -1,54 +1,13 @@
-name: Email Failure Test
+name: success-test
 
 on:
   push:
     branches:
-    - main
+      - main
 
 jobs:
-  test-email:
+  test-success:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
-
-    - name: Dummy step
-      run: echo "Everything is fine... for now "
-
-    - name: Force Failure (Test)
-      run: |
-        echo "Forcing failure to test email notification"
-        exit 1
-
-    - name: Send Email on Failure
-      if: failure()
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: ${{ secrets.SMTP_HOST }}
-        server_port: ${{ secrets.SMTP_PORT }}
-        username: ${{ secrets.SMTP_USERNAME }}
-        password: ${{ secrets.SMTP_PASSWORD }}
-
-        subject: 🚨 Test CI Failed - ${{ github.repository }}
-
-        to: ${{ secrets.EMAIL_TO }}
-        from: GitHub Actions <${{ secrets.EMAIL_FROM }}>
-
-        body: |
-          This is a test email 🚀
-
-          The GitHub Actions workflow failed intentionally.
-
-          Repository: ${{ github.repository }}
-          Branch: ${{ github.ref_name }}
-          Workflow: ${{ github.workflow }}
-          Job: ${{ github.job }}
-          Triggered by: ${{ github.actor }}
-
-          Logs:
-          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-
-
-     
+      - name: Just succeed
+        run: echo "Workflow succeeded 🎉"
