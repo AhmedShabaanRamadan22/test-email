@@ -1,4 +1,4 @@
-name: fail-test
+name: success-test
 
 on:
   push:
@@ -6,10 +6,8 @@ on:
       - main
 
 jobs:
-  test-failure:
+  test-success:
     runs-on: ubuntu-latest
     steps:
-      - name: This will fail on purpose
-        run: |
-          echo "About to fail 😈"
-          exit 1
+      - name: Just succeed
+        run: echo "Workflow succeeded 🎉"
