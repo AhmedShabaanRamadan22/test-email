@@ -1,0 +1,13 @@
+# workflow 2: يفشل
+name: test-fail
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  fail-job:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "This one will fail ❌"
+        exit 1

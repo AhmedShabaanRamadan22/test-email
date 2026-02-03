@@ -1,0 +1,11 @@
+# workflow 1: ناجح
+name: test-success
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  success-job:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "This one will succeed 🎉"
