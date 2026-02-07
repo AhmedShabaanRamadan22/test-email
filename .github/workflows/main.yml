@@ -1,4 +1,4 @@
-name: zizo
+name: Ahmed
 on:
   push:
     branches: [ main ]
