@@ -1,0 +1,13 @@
+name: failure
+
+on:
+  workflow_dispatch:
+
+jobs:
+  failure-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail intentionally
+        run: |
+          echo "This workflow will fail 💥"
+          exit 1
