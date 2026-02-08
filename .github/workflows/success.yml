@@ -1,0 +1,11 @@
+name: success
+
+on:
+  workflow_dispatch:
+
+jobs:
+  success-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "This workflow will succeed 🎉"
